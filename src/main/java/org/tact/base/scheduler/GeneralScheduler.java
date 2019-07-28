@@ -12,9 +12,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableAsync
 public class GeneralScheduler {
 
-	@Scheduled(cron = "*/5 * * * * ?") //Every 5 seconds
+	@Scheduled(cron = "*/30 * * * * ?") //Every 30 seconds
 	public void runFiveSecondsScheduler() throws Exception
 	{
-		System.out.println("Running every 5 seconds ["+new Date()+"]");			
+		long views = ViewCounter.getViewCount("https://www.youtube.com/watch?v=09R8_2nJtjg");
+		System.out.println("Running every 30 seconds ["+views+"]");			
 	}
 }
